@@ -32,36 +32,6 @@ To get started with this project, follow these steps:
 git clone https://github.com/Smajl95/swap-api.git
 
 
-
-Ecco il file README.md completo con i titoli formattati correttamente usando i cancelletti:
-
-markdown
-Copy code
-# Swap-API
-
-## Overview
-
-This project is an API built with Node.js, Express, and MongoDB for managing users and orders. The API allows users to register, authenticate, create, retrieve, and delete orders. It includes authentication using JWT (JSON Web Tokens) and password encryption via bcrypt.
-
-The goal of the project is to provide a backend service that allows users to interact with orders and manage their data securely.
-
-## Features
-
-### User Management
-- **User Registration (POST /api/register)**: Create a new user with first name, last name, email, and password.
-- **User Login (POST /api/login)**: Authenticate a user by email and password, returning a JWT token upon successful authentication.
-- **Get User Profile (GET /api/:id)**: Retrieve user details by their unique ID.
-- **Update User (PUT /api/:id)**: Update user information (e.g., name, email).
-- **Delete User (DELETE /api/:id)**: Delete a user by their unique ID.
-
-### Order Management
-- **Create Order (POST /api/orders)**: Create a new order with items, total price, and a reference to the user who created it.
-- **Get All Orders (GET /api/orders)**: Retrieve a list of all orders.
-- **Get Order by ID (GET /api/orders/:id)**: Retrieve an order by its unique ID.
-- **Delete Order (DELETE /api/orders/:id)**: Delete an order by its unique ID.
-
-## Installation
-
 To get started with this project, follow these steps:
 
 ### Clone the repository:
