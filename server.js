@@ -3,16 +3,16 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const multer = require('multer'); // Importa multer per gestione upload
+const multer = require('multer'); // Importo multer per gestione upload
 const fs = require('fs');
 const path = require('path');
 const User = require('./models/user'); // Modello User
 const Product = require('./models/product'); // Modello Prodotto
-const productRouter = require('./routes/productRoutes'); // Importa il router per i prodotti
-const authRouter = require('./routes/auth'); // Importa le rotte di autenticazione
+const productRouter = require('./routes/productRoutes'); // Importo il router per i prodotti
+const authRouter = require('./routes/auth'); // Importo le rotte di autenticazione
 const orderRouter = require('./routes/orderRoutes');// 
 
-// Carico variabili d'ambiente
+// Carica variabili d'ambiente
 dotenv.config();
 
 const app = express();
@@ -44,9 +44,9 @@ app.use('/uploads', express.static('uploads'));
 const connectDB = require('./config/db');
 connectDB(); // Funzione per connettersi al database
 
-// Funzione per proteggere le rotte con autenticazione JWT
+// Protegge le rotte con autenticazione JWT
 const protectRoute = (req, res, next) => {
-  const token = req.header('Authorization')?.replace('Bearer ', ''); // Estrai il token
+  const token = req.header('Authorization')?.replace('Bearer ', ''); // Estrae il token
 
   if (!token) {
     return res.status(401).json({ message: 'Autenticazione necessaria' });
@@ -54,7 +54,7 @@ const protectRoute = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET); // Verifica il token
-    req.user = decoded; // Aggiungi l'utente decodificato alla request
+    req.user = decoded; // Aggiunge l'utente decodificato alla request
     next(); // Passa alla rotta successiva
   } catch (error) {
     return res.status(401).json({ message: 'Token non valido' });

@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 
-// Password che vuoi criptare
+// Password da criptare
 const newPassword = 'password123';
 
 // Genera una nuova password criptata

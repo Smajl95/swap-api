@@ -4,10 +4,10 @@ const path = require('path');
 // Imposta la cartella di destinazione e il nome del file
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'uploads/product-images');  // Cartella dove salvare le immagini
+    cb(null, 'uploads/product-images');  // Cartella per salvare le immagini
   },
   filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname));  // Usa un timestamp per evitare conflitti di nomi
+    cb(null, Date.now() + path.extname(file.originalname));  // Timestamp per evitare conflitti di nomi
   },
 });
 

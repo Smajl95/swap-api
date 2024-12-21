@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-// Definisci lo schema dell'utente
+// Schema dell'utente
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -35,7 +35,7 @@ userSchema.pre('save', async function (next) {
   next(); // Continua il salvataggio
 });
 
-// Aggiungi il metodo per il confronto della password
+// Metodo per il confronto della password
 userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };

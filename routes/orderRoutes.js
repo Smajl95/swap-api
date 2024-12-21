@@ -1,7 +1,7 @@
 const express = require('express');
-const { validateOrder } = require('../validators/orderValidator'); // Importa il validatore
-const Order = require('../models/order'); // Importa il modello Order
-const mongoSanitize = require("express-mongo-sanitize"); // Importa express-mongo-sanitize
+const { validateOrder } = require('../validators/orderValidator'); 
+const Order = require('../models/order'); 
+const mongoSanitize = require("express-mongo-sanitize"); 
 
 const router = express.Router();
 
@@ -18,7 +18,7 @@ router.post('/orders', async (req, res) => {
     // Crea un nuovo ordine
     const newOrder = new Order({
       products: value.products,
-      user: value.user, // Assicurati che sia `user` e non `userId`
+      user: value.user, // user
       totalAmount: value.totalAmount,
     });
 
